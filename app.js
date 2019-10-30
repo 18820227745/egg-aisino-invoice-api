@@ -1,9 +1,9 @@
 
 'use strict';
 
-const aisinoInvoiceApi = require('./lib/aisinoInvoiceApi');
+const api = require('./lib/api');
 
 module.exports = app => {
-  if (app.config.aisinoInvoiceApi.app) aisinoInvoiceApi(app);
+  if (app.config.aisinoInvoiceApi.app) api(app);
 };
 
