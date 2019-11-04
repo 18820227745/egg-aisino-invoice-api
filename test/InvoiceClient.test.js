@@ -27,23 +27,21 @@ describe.only('test/InvoiceClient.test.js', () => {
     'RESPONSECODE': '121', // 响应码
     'PASSWORD': '', // 密码由平台提供，报文中passWord传空 密码
     'DATAEXCHANGEID': '', // 交互码
-    'KJFP': 'ECXML.FPKJ.BC.E_INV',
-    'DOWNLOAD': 'ECXML.FPXZ.CX.E_INV',
-    'EMAIL': 'ECXML.EMAILPHONEFPTS.TS.E.INV',
     'REGISTERCODE': '注册码', // ？ 注册码
+    'HOST': 'http://fw1test.shdzfp.com:9000/sajt-shdzfp-sl-http/SvrServlet?wsdl',
   };
   before(() => {
     invoiceClient = new InvoiceClient(config);
   });
 
-  it('create', async () => {
+  it.only('create', async () => {
     const params = {
       invoice_title: '亿众骏达网络科技（深圳）有限公司',
       discount: 10, // 折扣
       mobile: '0755-830512',
       sum: 1000,
       trade_no: 'aaaaaaa',
-      kpxm: '台', // 单位
+      kpxm: '家电产品', // 单位
       kplx: '1',  // 发票类型 1：正票，2：红票
       czdm: '10',
       created_at: '2019-10-21 21:55:22',
@@ -53,9 +51,8 @@ describe.only('test/InvoiceClient.test.js', () => {
           name: '洗衣机',
           quantity: 1,
           price: 1000,
-          spbm: '1010101030000000000', // 商品编码 ? 商品税收分类编码，由企业提供，技术人员需向企业财务核实，不足19位后面补‘0’，需与企业实际销售商品相匹配，也可关注“上海爱信诺”微信公众号的升级通知
+          spbm: '1010101030000000000', // SKU 商品编码 ? 商品税收分类编码，由企业提供，技术人员需向企业财务核实，不足19位后面补‘0’，需与企业实际销售商品相匹配，也可关注“上海爱信诺”微信公众号的升级通知
           zxbm: '00001', // 自行编码
-
         },
       ],
     };
@@ -71,7 +68,7 @@ describe.only('test/InvoiceClient.test.js', () => {
     console.log(result);
   });
 
-  it.only('email', async () => {
+  it('email', async () => {
     const params = {
       email: 'xulong@yeezon.com',
       fp_dm: '031001600211',
