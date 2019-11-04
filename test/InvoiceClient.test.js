@@ -2,7 +2,7 @@
 
 const InvoiceClient = require('../lib/InvoiceClient');
 
-describe('test/InvoiceClient.test.js', () => {
+describe.only('test/InvoiceClient.test.js', () => {
   let invoiceClient;
   const config = {
     'DSPTBM': '111MFWIK', // 电商平台编码
@@ -60,6 +60,25 @@ describe('test/InvoiceClient.test.js', () => {
       ],
     };
     const result = await invoiceClient.create(params);
+    console.log(result);
+  });
+
+  it('download', async () => {
+    const params = {
+      trade_no: 'aaaaaaa',
+    };
+    const result = await invoiceClient.download(params);
+    console.log(result);
+  });
+
+  it.only('email', async () => {
+    const params = {
+      email: 'xulong@yeezon.com',
+      fp_dm: '031001600211',
+      fp_hm: '21427227',
+      trade_no: 'aaaaaaa',
+    };
+    const result = await invoiceClient.email(params);
     console.log(result);
   });
 });
