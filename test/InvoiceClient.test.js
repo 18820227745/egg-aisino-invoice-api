@@ -37,6 +37,7 @@ describe.only('test/InvoiceClient.test.js', () => {
 
   it('create', async () => {
     const params = {
+      invoice_type: 2, // 企业开票
       invoice_title: '亿众骏达网络科技（深圳）有限公司',
       discount: 10, // 折扣
       mobile: '0755-830512',
