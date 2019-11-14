@@ -110,18 +110,19 @@ describe.only('test/InvoiceClient.test.js', () => {
     console.log(result);
   });
 
-  it('email', async () => {
+  it.only('email', async () => {
     const params = {
       email: 'xulong@yeezon.com',
       fp_dm: '031001600211',
       fp_hm: '21427227',
       trade_no: 'aaaaaaa',
+      mobile: '18820227745',
     };
     const result = await invoiceClient.email(params);
     console.log(result);
   });
 
-  it.only('parseNotificationResult', async () => {
+  it('parseNotificationResult', async () => {
     const value = `<?xml version="1.0" encoding="UTF-8"?>
     <interface xmlns:schemaLocation="http://www.chinatax.gov.cn/tirip/dataspec/interfaces.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="DZFP1.0">
      <globalInfo>
