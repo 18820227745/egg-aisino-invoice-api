@@ -1,6 +1,6 @@
 {
   "name": "egg-aisino-invoice-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "上海航天电子发票对接平台，Node.js版本的SDK",
   "eggPlugin": {
     "name": "aisinoInvoiceApi"
@@ -14,6 +14,8 @@
     "easy-soap-request": "^3.2.0",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
     "string-random": "^0.1.3",
     "uuid": "^3.3.3",
     "xml2js": "^0.4.22"

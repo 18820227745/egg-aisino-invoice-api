@@ -72,6 +72,7 @@ exports.aisinoInvoiceApi = {
       'DOWNLOAD': 'ECXML.FPXZ.CX.E_INV',
       'EMAIL': 'ECXML.EMAILPHONEFPTS.TS.E.INV',
       'REGISTERCODE': '注册码',
+      '3DES_KEY': '9oyKs7cVo1yYzkuisP9bhA==',
     },
 };
 ```
