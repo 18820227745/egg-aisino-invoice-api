@@ -30,12 +30,13 @@ describe.only('test/InvoiceClient.test.js', () => {
     'REGISTERCODE': '注册码', // ？ 注册码
     'HOST': 'http://fw1test.shdzfp.com:9000/sajt-shdzfp-sl-http/SvrServlet?wsdl',
     'KEY3DES': '9oyKs7cVo1yYzkuisP9bhA==',
+    'TAXRATE': 0.13, // TODO 
   };
   before(() => {
     invoiceClient = new InvoiceClient(config);
   });
 
-  it('create', async () => {
+  it.only('create', async () => {
     const params = {
       invoice_type: 2, // 企业开票
       invoice_title: '亿众骏达网络科技（深圳）有限公司',
@@ -52,6 +53,8 @@ describe.only('test/InvoiceClient.test.js', () => {
           id: 1,
           name: '洗衣机1',
           quantity: 1,
+          unit: '件', // TODO
+          options_decs: '白色，波轮，8公斤', // TODO
           price: 1000,
           spbm: '1010101030000000000', // SKU 商品编码 ? 商品税收分类编码，由企业提供，技术人员需向企业财务核实，不足19位后面补‘0’，需与企业实际销售商品相匹配，也可关注“上海爱信诺”微信公众号的升级通知
           zxbm: '00001', // 自行编码
@@ -111,7 +114,7 @@ describe.only('test/InvoiceClient.test.js', () => {
     console.log(result);
   });
 
-  it.only('email', async () => {
+  it('email', async () => {
     const params = {
       email: 'xulong@yeezon.com',
       fp_dm: '031001600211',
