@@ -44,7 +44,7 @@ describe.only('test/InvoiceClient.test.js', () => {
       discount: 10, // 折扣
       mobile: '0755-830512',
       sum: 1000,
-      trade_no: 'aaaaaaa8',
+      trade_no: 'aaaaaaa18',
       kpxm: '家电产品', // 单位
       kplx: '1',  // 发票类型 1：正票，2：红票
       czdm: '10',
@@ -107,9 +107,82 @@ describe.only('test/InvoiceClient.test.js', () => {
     console.log(JSON.stringify(result, null, 2));
   });
 
+  it.only('red_dash', async () => {
+    const params = {
+      invoice_type: 2, // 企业开票
+      invoice_title: '亿众骏达网络科技（深圳）有限公司',
+      discount: 10, // 折扣
+      mobile: '0755-830512',
+      sum: 1000,
+      trade_no: 'aaaaaaa189',
+      kpxm: '家电产品', // 单位
+      kplx: '2',  // 发票类型 1：正票，2：红票
+      czdm: '20', // 10：正票正常开具，20：退货折让红票
+      yfp_dm: '031001600211',
+      yfp_hm: '21335550',
+      chyy: '管理员红冲',
+      created_at: '2019-10-21 21:55:22',
+      items: [
+        {
+          id: 1,
+          name: '洗衣机1',
+          quantity: 1,
+          unit: '件', // TODO
+          options_desc: '白色，波轮，8公斤', // TODO
+          price: 1000,
+          spbm: '1010101030000000000', // SKU 商品编码 ? 商品税收分类编码，由企业提供，技术人员需向企业财务核实，不足19位后面补‘0’，需与企业实际销售商品相匹配，也可关注“上海爱信诺”微信公众号的升级通知
+          zxbm: '00001', // 自行编码
+        },
+        // {
+        //   id: 2,
+        //   name: '洗衣机2',
+        //   quantity: 1,
+        //   price: 1000,
+        //   spbm: '1010101020000000000', // SKU 商品编码 ? 商品税收分类编码，由企业提供，技术人员需向企业财务核实，不足19位后面补‘0’，需与企业实际销售商品相匹配，也可关注“上海爱信诺”微信公众号的升级通知
+        //   zxbm: '00001', // 自行编码
+        // },
+        // {
+        //   id: 3,
+        //   name: '洗衣机3',
+        //   quantity: 1,
+        //   price: 1000,
+        //   spbm: '1010101030000000000', // SKU 商品编码 ? 商品税收分类编码，由企业提供，技术人员需向企业财务核实，不足19位后面补‘0’，需与企业实际销售商品相匹配，也可关注“上海爱信诺”微信公众号的升级通知
+        //   zxbm: '00001', // 自行编码
+        // },
+        // {
+        //   id: 4,
+        //   name: '洗衣机4',
+        //   quantity: 1,
+        //   price: 1000,
+        //   spbm: '1010101030000000000', // SKU 商品编码 ? 商品税收分类编码，由企业提供，技术人员需向企业财务核实，不足19位后面补‘0’，需与企业实际销售商品相匹配，也可关注“上海爱信诺”微信公众号的升级通知
+        //   zxbm: '00001', // 自行编码
+        // },
+        // {
+        //   id: 5,
+        //   name: '洗衣机5',
+        //   quantity: 1,
+        //   price: 1000,
+        //   spbm: '1010101030000000000', // SKU 商品编码 ? 商品税收分类编码，由企业提供，技术人员需向企业财务核实，不足19位后面补‘0’，需与企业实际销售商品相匹配，也可关注“上海爱信诺”微信公众号的升级通知
+        //   zxbm: '00001', // 自行编码
+        // },
+        // {
+        //   id: 6,
+        //   name: '洗衣机6',
+        //   quantity: 1,
+        //   price: 1000,
+        //   spbm: '1010101030000000000', // SKU 商品编码 ? 商品税收分类编码，由企业提供，技术人员需向企业财务核实，不足19位后面补‘0’，需与企业实际销售商品相匹配，也可关注“上海爱信诺”微信公众号的升级通知
+        //   zxbm: '00001', // 自行编码
+        // },
+      ],
+    };
+    const result = await invoiceClient.create(params);
+    console.log('______________');
+    console.log(JSON.stringify(result, null, 2));
+  });
+
   it('download', async () => {
     const params = {
-      trade_no: 'aaaaaaa6',
+      trade_no: 'aaaaaaa18',
     };
     const result = await invoiceClient.download(params);
     console.log(result);
@@ -163,7 +236,7 @@ describe.only('test/InvoiceClient.test.js', () => {
   });
 
 
-  it.only('updateConfig', async () => {
+  it('updateConfig', async () => {
     const params = {
       'XHF_DZ': '厦门市同安区集安路555-563好111', // 销货方地址
     };
