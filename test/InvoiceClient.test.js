@@ -54,7 +54,7 @@ describe.only('test/InvoiceClient.test.js', () => {
           name: '洗衣机1',
           quantity: 1,
           unit: '件', // TODO
-          options_decs: '白色，波轮，8公斤', // TODO
+          options_desc: '白色，波轮，8公斤', // TODO
           price: 1000,
           spbm: '1010101030000000000', // SKU 商品编码 ? 商品税收分类编码，由企业提供，技术人员需向企业财务核实，不足19位后面补‘0’，需与企业实际销售商品相匹配，也可关注“上海爱信诺”微信公众号的升级通知
           zxbm: '00001', // 自行编码
