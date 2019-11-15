@@ -14,6 +14,7 @@ describe.only('test/InvoiceClient.test.js', () => {
     'XHF_YHZH': '402390001040044071', // 销货方银行账号
     'KPY': '付文晶', // 开票员
     'SKY': '王梅', // 收款员
+    'FHR': '小星星', // 复核人
     'HSBZ': '1', // 含税标志
     'TERMINALCODE': '0', // 终端类型标识代码
     'APPID': 'ZZS_PT_DZFP',
