@@ -37,7 +37,7 @@ describe.only('test/InvoiceClient.test.js', () => {
     invoiceClient = new InvoiceClient(config);
   });
 
-  it.only('create', async () => {
+  it('create', async () => {
     const params = {
       invoice_type: 2, // 企业开票
       invoice_title: '亿众骏达网络科技（深圳）有限公司',
@@ -162,5 +162,13 @@ describe.only('test/InvoiceClient.test.js', () => {
     console.log(result);
   });
 
+
+  it.only('updateConfig', async () => {
+    const params = {
+      'XHF_DZ': '厦门市同安区集安路555-563好111', // 销货方地址
+    };
+    const result = await invoiceClient.updateConfig(params);
+    console.log(result);
+  });
 
 });
