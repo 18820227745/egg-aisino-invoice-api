@@ -37,14 +37,15 @@ describe.only('test/InvoiceClient.test.js', () => {
     invoiceClient = new InvoiceClient(config);
   });
 
-  it('create', async () => {
+  it.only('create', async () => {
     const params = {
       invoice_type: 2, // 企业开票
       invoice_title: '亿众骏达网络科技（深圳）有限公司',
+      invoice_tax_number: '91440300585636273L',
       discount: 0, // 折扣
       mobile: '0755-830512',
       sum: 1000,
-      trade_no: 'aaaaaaa188',
+      trade_no: 'aaaaaaa112',
       kpxm: '家电产品', // 单位
       kplx: '1',  // 发票类型 1：正票，2：红票
       czdm: '10',
@@ -111,6 +112,7 @@ describe.only('test/InvoiceClient.test.js', () => {
     const params = {
       invoice_type: 2, // 企业开票
       invoice_title: '亿众骏达网络科技（深圳）有限公司',
+      invoice_tax_number: '91440300585636273L',
       discount: 0, // 折扣
       mobile: '0755-830512',
       sum: 1000,
@@ -180,7 +182,7 @@ describe.only('test/InvoiceClient.test.js', () => {
     console.log(JSON.stringify(result, null, 2));
   });
 
-  it.only('download', async () => {
+  it('download', async () => {
     const params = {
       trade_no: 'aaaaaaa66645',
     };
