@@ -45,7 +45,7 @@ describe.only('test/InvoiceClient.test.js', () => {
       discount: 0, // 折扣
       mobile: '0755-830512',
       sum: 1000,
-      trade_no: 'aaaaaaa112',
+      trade_no: 'aaaaaaa1133',
       kpxm: '家电产品', // 单位
       kplx: '1',  // 发票类型 1：正票，2：红票
       czdm: '10',
@@ -104,7 +104,6 @@ describe.only('test/InvoiceClient.test.js', () => {
       ],
     };
     const result = await invoiceClient.create(params);
-    console.log('______________');
     console.log(JSON.stringify(result, null, 2));
   });
 
@@ -184,7 +183,7 @@ describe.only('test/InvoiceClient.test.js', () => {
 
   it('download', async () => {
     const params = {
-      trade_no: 'aaaaaaa66645',
+      trade_no: '20191121070112',
     };
     const result = await invoiceClient.download(params);
     console.log(result);
