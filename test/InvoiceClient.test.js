@@ -41,10 +41,10 @@ describe.only('test/InvoiceClient.test.js', () => {
     const params = {
       invoice_type: 2, // 企业开票
       invoice_title: '亿众骏达网络科技（深圳）有限公司',
-      discount: 10, // 折扣
+      discount: 0, // 折扣
       mobile: '0755-830512',
       sum: 1000,
-      trade_no: 'aaaaaaa18',
+      trade_no: 'aaaaaaa188',
       kpxm: '家电产品', // 单位
       kplx: '1',  // 发票类型 1：正票，2：红票
       czdm: '10',
@@ -107,26 +107,26 @@ describe.only('test/InvoiceClient.test.js', () => {
     console.log(JSON.stringify(result, null, 2));
   });
 
-  it.only('red_dash', async () => {
+  it('red_dash', async () => {
     const params = {
       invoice_type: 2, // 企业开票
       invoice_title: '亿众骏达网络科技（深圳）有限公司',
-      discount: 10, // 折扣
+      discount: 0, // 折扣
       mobile: '0755-830512',
       sum: 1000,
-      trade_no: 'aaaaaaa189',
+      trade_no: 'aaaaaaa66645',
       kpxm: '家电产品', // 单位
       kplx: '2',  // 发票类型 1：正票，2：红票
       czdm: '20', // 10：正票正常开具，20：退货折让红票
       yfp_dm: '031001600211',
-      yfp_hm: '21335550',
+      yfp_hm: '21336004',
       chyy: '管理员红冲',
       created_at: '2019-10-21 21:55:22',
       items: [
         {
           id: 1,
           name: '洗衣机1',
-          quantity: 1,
+          quantity: - 1,
           unit: '件', // TODO
           options_desc: '白色，波轮，8公斤', // TODO
           price: 1000,
@@ -180,9 +180,9 @@ describe.only('test/InvoiceClient.test.js', () => {
     console.log(JSON.stringify(result, null, 2));
   });
 
-  it('download', async () => {
+  it.only('download', async () => {
     const params = {
-      trade_no: 'aaaaaaa18',
+      trade_no: 'aaaaaaa66645',
     };
     const result = await invoiceClient.download(params);
     console.log(result);
