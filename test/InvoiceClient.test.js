@@ -37,7 +37,7 @@ describe.only('test/InvoiceClient.test.js', () => {
     invoiceClient = new InvoiceClient(config);
   });
 
-  it.only('create', async () => {
+  it('create', async () => {
     const params = {
       invoice_type: 2, // 企业开票
       invoice_title: '亿众骏达网络科技（深圳）有限公司',
@@ -181,9 +181,9 @@ describe.only('test/InvoiceClient.test.js', () => {
     console.log(JSON.stringify(result, null, 2));
   });
 
-  it('download', async () => {
+  it.only('download', async () => {
     const params = {
-      trade_no: '20191121070112',
+      trade_no: 'aaaaaaa66645',
     };
     const result = await invoiceClient.download(params);
     console.log(result);
