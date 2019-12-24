@@ -181,7 +181,7 @@ describe.only('test/InvoiceClient.test.js', () => {
     console.log(JSON.stringify(result, null, 2));
   });
 
-  it.only('download', async () => {
+  it('download', async () => {
     const params = {
       trade_no: 'aaaaaaa66645',
     };
@@ -201,7 +201,7 @@ describe.only('test/InvoiceClient.test.js', () => {
     console.log(result);
   });
 
-  it('parseNotificationResult', async () => {
+  it.only('parseNotificationResult', async () => {
     const value = `<?xml version="1.0" encoding="UTF-8"?>
     <interface xmlns:schemaLocation="http://www.chinatax.gov.cn/tirip/dataspec/interfaces.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="DZFP1.0">
      <globalInfo>
