@@ -8,18 +8,18 @@ describe.only('test/InvoiceClient.test.js', () => {
     'DSPTBM': '111MFWIK', // 电商平台编码
     'NSRSBH': '310101000000090', // 纳税人识别码
     'NSRMC' : '亿众骏达网络科技（深圳）有限公司', // 纳税人名称
-    'XHFMC' : '厦门京东东和贸易有限公司', // 销货方名称
+    'XHFMC' : '上海航信测试90', // 销货方名称
     'XHF_DZ': '厦门市同安区集安路555-563好', // 销货方地址
     'XHF_DH': '66215500', // 销货方电话
     'XHF_YHZH': '402390001040044071', // 销货方银行账号
-    'KPY': '付文晶', // 开票员
-    'SKY': '王梅', // 收款员
-    'FHR': '小星星', // 复核人
+    'KPY': 'Cecile', // 开票员
+    'FHR': '待定', // 复核人
+    'SKY': 'AR的同事', // 收款员
     'HSBZ': '1', // 含税标志
     'TERMINALCODE': '0', // 终端类型标识代码
     'APPID': 'ZZS_PT_DZFP',
     'TAXPAYWERID': '310101000000090', // ？税号
-    'AUTHORIZATIONCODE': '3100000090', // ？ 认证码
+    'AUTHORIZATIONCODE': 'JQ60C04WNA', // ？ 认证码
     'ENCRYPTCODE':'1', // 加密码 	0:不加密（base64编码） 1: 3DES加密 2:CA
     'INTERFACE_FPKJ': 'ECXML.FPKJ.BC.E_INV',
     'INTERFACE_FPXZ': 'ECXML.FPXZ.CX.E_INV',
@@ -30,8 +30,8 @@ describe.only('test/InvoiceClient.test.js', () => {
     'DATAEXCHANGEID': '', // 交互码
     'REGISTERCODE': '注册码', // ？ 注册码
     'HOST': 'http://fw1test.shdzfp.com:9000/sajt-shdzfp-sl-http/SvrServlet?wsdl',
-    'KEY3DES': 'G7Mu4IHuUM8LOmLLfHvgPa==',
-    'TAXRATE': 0.13, // TODO 
+    'KEY3DES': 'G7Mu4IHuUM8LOmLLfHvgPA==',
+    'TAXRATE': 0.13,
   };
   before(() => {
     invoiceClient = new InvoiceClient(config);
@@ -181,12 +181,12 @@ describe.only('test/InvoiceClient.test.js', () => {
     console.log(JSON.stringify(result, null, 2));
   });
 
-  it('download', async () => {
+  it.only('download', async () => {
     const params = {
       trade_no: 'aaaaaaa66645',
     };
     const result = await invoiceClient.download(params);
-    console.log(result);
+    console.log(JSON.stringify(result, null, 2));
   });
 
   it('email', async () => {
@@ -201,7 +201,7 @@ describe.only('test/InvoiceClient.test.js', () => {
     console.log(result);
   });
 
-  it.only('parseNotificationResult', async () => {
+  it('parseNotificationResult', async () => {
     const value = `<?xml version="1.0" encoding="UTF-8"?>
     <interface xmlns:schemaLocation="http://www.chinatax.gov.cn/tirip/dataspec/interfaces.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="DZFP1.0">
      <globalInfo>
