@@ -183,7 +183,7 @@ describe.only('test/InvoiceClient.test.js', () => {
 
   it.only('download', async () => {
     const params = {
-      trade_no: 'aaaaaaa66645',
+      trade_no: '20191224102666',
     };
     const result = await invoiceClient.download(params);
     console.log(JSON.stringify(result, null, 2));
