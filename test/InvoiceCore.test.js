@@ -44,7 +44,7 @@ describe.only('test/InvoiceCore.test.js', () => {
   });
 
   it('des3Encrypt needGzip=true', async () => {
-    const result = await invoiceCore.des3Encrypt('1', true);
+    const result = await invoiceCore.des3Encrypt('1', undefined, true);
     console.log(result);
     assert(result === 'H4sIAAAAAAAAE7tSk19vl7ImCwCMQGK+CAAAAA=='); // 不一定与网站测试工具一致
   });
@@ -55,10 +55,18 @@ describe.only('test/InvoiceCore.test.js', () => {
     assert(result === '1');
   });
 
-  it.only('des3Decrypt needUnGzip=true', async () => {
-    const result = await invoiceCore.des3Decrypt('H4sIAAAAAAAAALtSk19vl7ImCwCMQGK+CAAAAA==', true);
+  it('des3Decrypt needUnGzip=true', async () => {
+    const result = await invoiceCore.des3Decrypt('H4sIAAAAAAAAALtSk19vl7ImCwCMQGK+CAAAAA==', undefined, true);
     console.log(result);
     assert(result === '1');
+  });
+
+  it('des3Encrypt specify key needGzip=true', async () => {
+    const key = '123456789012345678901234';
+    const encrypted = await invoiceCore.des3Encrypt('100', key, true);
+    const result = await invoiceCore.des3Decrypt(encrypted, key, true);
+    console.log(result);
+    assert(result === '100');
   });
 
 });
